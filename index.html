@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Mostafa Bamdad | Academic Homepage</title>
+
+  <meta name="description" content="Mostafa Bamdad - Ph.D. Candidate in Computational Mechanics, Scientific Machine Learning, AI4Science, Physics-Informed Neural Networks, Neural Operators, and Computational Mechanics." />
+
+  <style>
+    :root {
+      --blue: #064f9e;
+      --dark: #333943;
+      --text: #3d444d;
+      --muted: #687381;
+      --line: #e7ecf2;
+      --light: #f7f9fc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: white;
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    a:hover {
+      color: #00366f;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.98);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .navbar-inner {
+      max-width: 1250px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .navbar a {
+      color: #4a535f;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .navbar a:hover {
+      color: var(--blue);
+    }
+
+    .container {
+      max-width: 1250px;
+      margin: 0 auto;
+      padding: 45px 28px;
+      display: grid;
+      grid-template-columns: 290px 1fr;
+      gap: 55px;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 95px;
+      align-self: start;
+    }
+
+    .profile-photo {
+      width: 205px;
+      height: 205px;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+      margin: 0 auto 20px;
+      border: 5px solid #f1f4f8;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
+    }
+
+    .sidebar h1 {
+      text-align: center;
+      margin: 0;
+      color: var(--dark);
+      font-size: 25px;
+    }
+
+    .sidebar .name-small {
+      text-align: center;
+      color: var(--muted);
+      margin-top: 6px;
+      margin-bottom: 26px;
+      font-size: 16px;
+    }
+
+    .sidebar .bio-short {
+      font-size: 15px;
+      color: #414a55;
+      margin-bottom: 25px;
+    }
+
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .contact-list li {
+      margin: 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+    }
+
+    .contact-list span.icon {
+      width: 20px;
+      text-align: center;
+      color: #222;
+    }
+
+    .contact-list a {
+      color: #333943;
+      text-decoration: none;
+    }
+
+    .contact-list a:hover {
+      color: var(--blue);
+      text-decoration: underline;
+    }
+
+    .cv-button {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 10px 18px;
+      background: var(--blue);
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 8px 20px rgba(6, 79, 158, 0.20);
+    }
+
+    .cv-button:hover {
+      color: white;
+      background: #003d7d;
+    }
+
+    .main section {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 34px;
+      margin-bottom: 34px;
+      scroll-margin-top: 90px;
+    }
+
+    .main section:last-child {
+      border-bottom: none;
+    }
+
+    .intro p {
+      margin-top: 0;
+      font-size: 17px;
+    }
+
+    h2 {
+      color: var(--dark);
+      margin-top: 0;
+      margin-bottom: 22px;
+      font-size: 27px;
+    }
+
+    h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+      font-size: 19px;
+    }
+
+    .publication {
+      display: grid;
+      grid-template-columns: 1fr 330px;
+      gap: 30px;
+      align-items: center;
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .publication:first-of-type {
+      border-top: none;
+    }
+
+    .publication img {
+      width: 100%;
+      max-height: 230px;
+      object-fit: contain;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 7px 22px rgba(0, 0, 0, 0.10);
+    }
+
+    .authors {
+      margin: 6px 0;
+      color: #444b55;
+    }
+
+    .venue {
+      margin: 6px 0 12px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .publication ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    .pub-links a {
+      display: inline-block;
+      margin-right: 10px;
+      margin-top: 6px;
+      font-weight: bold;
+    }
+
+    .timeline {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .timeline li {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 20px;
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .timeline li:first-child {
+      border-top: none;
+    }
+
+    .date {
+      font-weight: bold;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .placeholder {
+      background: var(--light);
+      border: 1px dashed #b8c5d6;
+      border-radius: 8px;
+      padding: 18px 22px;
+      color: #4b5563;
+    }
+
+    footer {
+      max-width: 1250px;
+      margin: 0 auto;
+      padding: 25px 28px 45px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .sidebar {
+        position: static;
+        text-align: center;
+      }
+
+      .bio-short {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .contact-list {
+        max-width: 310px;
+        margin: 0 auto;
+        text-align: left;
+      }
+
+      .publication {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline li {
+        grid-template-columns: 1fr;
+        gap: 5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="#home">Homepage</a>
+      <a href="#about">About Me</a>
+      <a href="#publications">Publications</a>
+      <a href="#honors">Honors and Awards</a>
+      <a href="#education">Educations</a>
+      <a href="#conference">Conference</a>
+      <a href="#experience">Professional Experience</a>
+      <a href="Mostafa_Bamdad_CV.pdf" target="_blank">My CV</a>
+    </div>
+  </nav>
+
+  <div id="home" class="container">
+
+    <aside class="sidebar">
+      <img class="profile-photo" src="Mostafa_Bamdad.jpg" alt="Mostafa Bamdad profile photo" />
+
+      <h1>Mostafa Bamdad</h1>
+      <p class="name-small">Mostafa Bamdad</p>
+
+      <p class="bio-short">
+        Ph.D. Candidate in Computational Mechanics at Bauhaus University Weimar, focused on AI4Science, computational mechanics, physics-informed neural networks, neural operators, and scientific machine learning for PDE-based engineering systems.
+      </p>
+
+      <ul class="contact-list">
+        <li><span class="icon">📍</span> Weimar, Germany</li>
+        <li><span class="icon">✉️</span> <a href="mailto:mostafa.bamdad@uni-weimar.de">Email</a></li>
+        <li><span class="icon">🔬</span> <a href="https://www.researchgate.net/profile/Mostafa-Bamdad-2?ev=prf_overview" target="_blank">ResearchGate</a></li>
+        <li><span class="icon">🔗</span> <a href="https://www.linkedin.com/in/mostafa-bamdad-204032188/" target="_blank">LinkedIn</a></li>
+        <li><span class="icon">💻</span> <a href="https://github.com/MBamdad" target="_blank">Github</a></li>
+        <li><span class="icon">🎓</span> <a href="#" target="_blank">Google Scholar</a></li>
+        <li><span class="icon">🌐</span> <a href="#" target="_blank">Zhihu</a></li>
+        <li><span class="icon">📝</span> <a href="#" target="_blank">Rednote</a></li>
+      </ul>
+
+      <a class="cv-button" href="Mostafa_Bamdad_CV.pdf" target="_blank">My CV</a>
+    </aside>
+
+    <main class="main">
+
+      <section id="about" class="intro">
+        <p>
+          Hi, my name is <strong>Mostafa Bamdad</strong>. I am a Ph.D. Candidate and researcher in Computational Mechanics at <strong>Bauhaus University Weimar</strong>, Germany, working under the supervision of <strong>Prof. Timon Rabczuk</strong>.
+        </p>
+
+        <p>
+          My research lies at the intersection of <strong>AI4Science</strong>, <strong>scientific machine learning</strong>, and <strong>computational mechanics</strong>. I focus on developing physics-aware and numerically reliable machine learning methods for solving partial differential equations and modeling complex engineering systems.
+        </p>
+
+        <p>
+          I have experience with <strong>physics-informed neural networks</strong>, <strong>neural operators</strong>, <strong>Fourier-based methods</strong>, <strong>finite element simulation</strong>, <strong>phase-field modeling</strong>, and data-driven surrogate models for nonlinear and time-dependent systems. My broader goal is to build accurate, interpretable, and physically consistent computational tools for mechanics and engineering applications.
+        </p>
+
+        <p>
+          My representative research interests include <strong>PENCO</strong>, <strong>HAMNO</strong>, <strong>PINNs</strong>, <strong>PINOs</strong>, <strong>FNOs</strong>, <strong>DeepONets</strong>, computational mechanics, multiphysics modeling, and AI-assisted simulation of PDE-governed systems.
+        </p>
+      </section>
+
+      <section id="publications">
+        <h2>📝 Publications</h2>
+
+        <article class="publication">
+          <div>
+            <h3>
+              <a href="#" target="_blank">
+                HAMNO: Hierarchical Adaptive Multi-Scale Neural Operator for Nonlinear Dynamical Systems
+              </a>
+            </h3>
+            <p class="authors"><strong>Mostafa Bamdad</strong> and collaborators</p>
+            <p class="venue">Research project / manuscript in preparation</p>
+            <ul>
+              <li>
+                Developed a hierarchical adaptive neural-operator framework for nonlinear dynamical systems with multiscale structures and long-range interactions.
+              </li>
+              <li>
+                The method combines local and global representations to improve accuracy, stability, and long-horizon prediction for time-dependent PDE systems.
+              </li>
+            </ul>
+            <p class="pub-links">
+              <a href="https://github.com/MBamdad" target="_blank">Code</a>
+            </p>
+          </div>
+          <img src="HAMNO.png" alt="HAMNO research figure" />
+        </article>
+
+        <article class="publication">
+          <div>
+            <h3>
+              <a href="https://doi.org/10.1016/j.cma.2026.118862" target="_blank">
+                PENCO: Physics–Energy–Numerics-Consistent Operator for 3D Phase-Field Modeling
+              </a>
+            </h3>
+            <p class="authors"><strong>Mostafa Bamdad</strong> and collaborators</p>
+            <p class="venue">Computer Methods in Applied Mechanics and Engineering, 2026</p>
+            <ul>
+              <li>
+                Developed a physics-, energy-, and numerics-consistent neural operator for reliable 3D phase-field simulation.
+              </li>
+              <li>
+                The framework improves long-term prediction, data efficiency, numerical stability, and physical consistency in complex spatiotemporal PDE systems.
+              </li>
+            </ul>
+            <p class="pub-links">
+              <a href="https://doi.org/10.1016/j.cma.2026.118862" target="_blank">DOI</a>
+              <a href="https://github.com/MBamdad/PENCO" target="_blank">Code</a>
+            </p>
+          </div>
+          <img src="PENCO.png" alt="PENCO research figure" />
+        </article>
+
+        <article class="publication">
+          <div>
+            <h3>
+              <a href="https://doi.org/10.1016/j.neucom.2024.129119" target="_blank">
+                Scientific Machine Learning for PDE-Based Structural Systems
+              </a>
+            </h3>
+            <p class="authors"><strong>Mostafa Bamdad</strong> and collaborators</p>
+            <p class="venue">Neurocomputing, 2024</p>
+            <ul>
+              <li>
+                Investigated scientific machine learning models for structural systems governed by partial differential equations.
+              </li>
+              <li>
+                Connected physics-based modeling, numerical methods, and data-driven simulation for engineering applications.
+              </li>
+            </ul>
+            <p class="pub-links">
+              <a href="https://doi.org/10.1016/j.neucom.2024.129119" target="_blank">DOI</a>
+            </p>
+          </div>
+          <img src="PENCO.png" alt="Scientific machine learning publication figure" />
+        </article>
+
+        <article class="publication">
+          <div>
+            <h3>
+              <a href="https://doi.org/10.12989/anr.2023.15.5.423" target="_blank">
+                Multiphysics Modeling of Magneto-Electro-Elastic Sandwich Structures
+              </a>
+            </h3>
+            <p class="authors"><strong>Mostafa Bamdad</strong> and collaborators</p>
+            <p class="venue">Advances in Nano Research, 2023</p>
+            <ul>
+              <li>
+                Studied multiphysics behavior in advanced sandwich structures under coupled mechanical, electrical, and magnetic fields.
+              </li>
+              <li>
+                Applied computational mechanics tools to analyze complex structural responses in smart material systems.
+              </li>
+            </ul>
+            <p class="pub-links">
+              <a href="https://doi.org/10.12989/anr.2023.15.5.423" target="_blank">DOI</a>
+            </p>
+          </div>
+          <img src="HAMNO.png" alt="Multiphysics publication figure" />
+        </article>
+
+      </section>
+
+      <section id="honors">
+        <h2>🎖 Honors and Awards</h2>
+
+        <ul class="timeline">
+          <li>
+            <span class="date">2023–Present</span>
+            <div>
+              <h3>DAAD Scholarship</h3>
+              <p>
+                Awarded by the German Academic Exchange Service to support doctoral research in Germany.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <span class="date">Training</span>
+            <div>
+              <h3>Advanced Computational Mechanics Training</h3>
+              <p>
+                Completed professional training in Python for Computational Mechanics and ABAQUS CAE for advanced static and dynamic simulation.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="education">
+        <h2>📖 Educations</h2>
+
+        <ul class="timeline">
+          <li>
+            <span class="date">Since 06/2022</span>
+            <div>
+              <h3>Ph.D. Candidate in Computational Mechanics</h3>
+              <p>Bauhaus University Weimar, Germany</p>
+              <p>Supervisor: Prof. Timon Rabczuk</p>
+            </div>
+          </li>
+
+          <li>
+            <span class="date">2016–2019</span>
+            <div>
+              <h3>M.Sc. in Mechanical Engineering</h3>
+              <p>University of Kashan, Iran</p>
+            </div>
+          </li>
+
+          <li>
+            <span class="date">2012–2016</span>
+            <div>
+              <h3>B.Sc. in Mechanical Engineering</h3>
+              <p>University of Guilan, Iran</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="conference">
+        <h2>💬 Conference</h2>
+
+        <div class="placeholder">
+          <p>
+            This section will include selected conference presentations, workshops, invited talks, posters, and academic visits.
+          </p>
+          <p>
+            Please send me your conference and workshop information later, and I will organize this section professionally.
+          </p>
+        </div>
+      </section>
+
+      <section id="experience">
+        <h2>💻 Professional Experience</h2>
+
+        <ul class="timeline">
+          <li>
+            <span class="date">2022–Present</span>
+            <div>
+              <h3>Researcher / Ph.D. Candidate</h3>
+              <p>Bauhaus University Weimar, Chair of Computational Mechanics, Germany</p>
+              <p>
+                Conducting research on scientific machine learning, neural operators, physics-informed modeling, PDE simulation, phase-field modeling, and computational mechanics.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <span class="date">Research</span>
+            <div>
+              <h3>Scientific Machine Learning and Neural Operator Development</h3>
+              <p>
+                Developing physics-aware and numerically consistent machine learning models for nonlinear PDE systems, including operator-learning architectures, spectral methods, and stable long-horizon simulation frameworks.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <span class="date">Skills</span>
+            <div>
+              <h3>Technical Expertise</h3>
+              <p>
+                Python, PyTorch, JAX, TensorFlow, NumPy, SciPy, MATLAB, Abaqus, FEniCS, finite element methods, neural operators, PINNs, FNOs, DeepONets, numerical validation, and scientific visualization.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+    </main>
+  </div>
+
+  <footer>
+    © 2026 Mostafa Bamdad. Built with GitHub Pages.
+  </footer>
+
+</body>
+</html>
