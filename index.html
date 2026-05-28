@@ -93,6 +93,7 @@
       width: 205px;
       height: 205px;
       object-fit: cover;
+      object-position: center 28%;
       border-radius: 50%;
       display: block;
       margin: 0 auto 20px;
@@ -267,12 +268,27 @@
       font-size: 14px;
     }
 
-    .placeholder {
-      background: var(--light);
-      border: 1px dashed #b8c5d6;
-      border-radius: 8px;
-      padding: 18px 22px;
-      color: #4b5563;
+    .conference-card {
+      display: grid;
+      grid-template-columns: 1fr 330px;
+      gap: 30px;
+      align-items: center;
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .conference-card:first-of-type {
+      border-top: none;
+    }
+
+    .conference-card img {
+      width: 100%;
+      max-height: 245px;
+      object-fit: contain;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 7px 22px rgba(0, 0, 0, 0.10);
     }
 
     footer {
@@ -306,7 +322,8 @@
         text-align: left;
       }
 
-      .publication {
+      .publication,
+      .conference-card {
         grid-template-columns: 1fr;
       }
 
@@ -352,8 +369,6 @@
         <li><span class="icon">🔗</span> <a href="https://www.linkedin.com/in/mostafa-bamdad-204032188/" target="_blank">LinkedIn</a></li>
         <li><span class="icon">💻</span> <a href="https://github.com/MBamdad" target="_blank">Github</a></li>
         <li><span class="icon">🎓</span> <a href="#" target="_blank">Google Scholar</a></li>
-        <li><span class="icon">🌐</span> <a href="#" target="_blank">Zhihu</a></li>
-        <li><span class="icon">📝</span> <a href="#" target="_blank">Rednote</a></li>
       </ul>
 
       <a class="cv-button" href="Mostafa_Bamdad_CV.pdf" target="_blank">My CV</a>
@@ -367,7 +382,7 @@
         </p>
 
         <p>
-          My research lies at the intersection of <strong>AI4Science</strong>, <strong>scientific machine learning</strong>, and <strong>computational mechanics</strong>. I focus on developing physics-aware and numerically reliable machine learning methods for solving partial differential equations and modeling complex engineering systems.
+          My research lies at the intersection of <strong>AI4Science</strong>, <strong>scientific machine learning</strong>, and <strong>computational mechanics</strong>. I focus on developing physics-aware and numerically reliable machine learning methods for modeling and simulating complex engineering systems.
         </p>
 
         <p>
@@ -375,7 +390,7 @@
         </p>
 
         <p>
-          My representative research interests include <strong>PENCO</strong>, <strong>HAMNO</strong>, <strong>PINNs</strong>, <strong>PINOs</strong>, <strong>FNOs</strong>, <strong>DeepONets</strong>, computational mechanics, multiphysics modeling, and AI-assisted simulation of PDE-governed systems.
+          My representative research interests include <strong>PENCO</strong>, <strong>HAMNO</strong>, <strong>PINNs</strong>, <strong>PINOs</strong>, <strong>FNOs</strong>, <strong>F-FNOs</strong>, <strong>U-shaped neural operators</strong>, <strong>DeepONets</strong>, computational mechanics, multiphysics modeling, and AI-assisted simulation of PDE-governed systems.
         </p>
       </section>
 
@@ -435,24 +450,24 @@
           <div>
             <h3>
               <a href="https://doi.org/10.1016/j.neucom.2024.129119" target="_blank">
-                Scientific Machine Learning for PDE-Based Structural Systems
+                Applications of Scientific Machine Learning for the Analysis of Functionally Graded Porous Beams
               </a>
             </h3>
             <p class="authors"><strong>Mostafa Bamdad</strong> and collaborators</p>
             <p class="venue">Neurocomputing, 2024</p>
             <ul>
               <li>
-                Investigated scientific machine learning models for structural systems governed by partial differential equations.
+                Investigated the use of scientific machine learning for the analysis of functionally graded porous beam structures.
               </li>
               <li>
-                Connected physics-based modeling, numerical methods, and data-driven simulation for engineering applications.
+                Combined physics-based modeling, numerical simulation, and data-driven learning to improve the analysis of PDE-governed structural systems.
               </li>
             </ul>
             <p class="pub-links">
               <a href="https://doi.org/10.1016/j.neucom.2024.129119" target="_blank">DOI</a>
             </p>
           </div>
-          <img src="PENCO.png" alt="Scientific machine learning publication figure" />
+          <img src="SciML4PDE.png" alt="SciML4PDE publication figure" />
         </article>
 
         <article class="publication">
@@ -466,7 +481,7 @@
             <p class="venue">Advances in Nano Research, 2023</p>
             <ul>
               <li>
-                Studied multiphysics behavior in advanced sandwich structures under coupled mechanical, electrical, and magnetic fields.
+                Studied multiphysics behavior in advanced magneto-electro-elastic sandwich structures under coupled mechanical, electrical, and magnetic fields.
               </li>
               <li>
                 Applied computational mechanics tools to analyze complex structural responses in smart material systems.
@@ -476,7 +491,7 @@
               <a href="https://doi.org/10.12989/anr.2023.15.5.423" target="_blank">DOI</a>
             </p>
           </div>
-          <img src="HAMNO.png" alt="Multiphysics publication figure" />
+          <img src="Multiphysics_MMEE.png" alt="Multiphysics magneto-electro-elastic publication figure" />
         </article>
 
       </section>
@@ -500,7 +515,7 @@
             <div>
               <h3>Advanced Computational Mechanics Training</h3>
               <p>
-                Completed professional training in Python for Computational Mechanics and ABAQUS CAE for advanced static and dynamic simulation.
+                Professional training in Python for Computational Mechanics and ABAQUS CAE for advanced static and dynamic simulation.
               </p>
             </div>
           </li>
@@ -541,14 +556,39 @@
       <section id="conference">
         <h2>💬 Conference</h2>
 
-        <div class="placeholder">
-          <p>
-            This section will include selected conference presentations, workshops, invited talks, posters, and academic visits.
-          </p>
-          <p>
-            Please send me your conference and workshop information later, and I will organize this section professionally.
-          </p>
-        </div>
+        <article class="conference-card">
+          <div>
+            <h3>
+              <a href="https://www.linkedin.com/feed/update/urn:li:activity:7252320862421315587/" target="_blank">
+                Advancing Scientific Machine Learning in Industry
+              </a>
+            </h3>
+            <p class="venue">Workshop, TU München Institute for Advanced Study, Germany, October 15–16, 2024</p>
+            <p>
+              I participated in this workshop and presented a poster on scientific machine learning. The event brought together academic and industrial experts to discuss recent progress in SciML, including physics-informed learning, universal differential equations, numerical analysis, and scalable methods for industrial applications.
+            </p>
+            <p>
+              The workshop highlighted the role of SciML in connecting data-driven learning with physical modeling and addressed practical challenges in deploying reliable machine learning methods for complex real-world engineering systems.
+            </p>
+          </div>
+          <img src="Poster_TUM_ML4PDE.png" alt="Poster for TUM scientific machine learning workshop" />
+        </article>
+
+        <article class="conference-card">
+          <div>
+            <h3>
+              Machine Learning and PDEs — #MLPDES25 Workshop
+            </h3>
+            <p class="venue">FAU Research Center for Mathematics of Data, Erlangen, Bavaria, Germany, April 28–30, 2025</p>
+            <p>
+              I participated in the #MLPDES25 workshop on Machine Learning and Partial Differential Equations at Friedrich-Alexander-Universität Erlangen-Nürnberg. The workshop focused on recent theoretical advances and applications at the interface of machine learning, PDEs, numerical simulation, and scientific computing.
+            </p>
+            <p>
+              Topics included machine learning for PDEs, universal approximation, data-driven classification, neural networks, and numerical simulation in mechanics, bio-mechanics, micro-fluidics, and related scientific domains.
+            </p>
+          </div>
+          <img src="FAU_MLPDES25.png" alt="FAU Machine Learning and PDEs workshop" />
+        </article>
       </section>
 
       <section id="experience">
@@ -571,7 +611,7 @@
             <div>
               <h3>Scientific Machine Learning and Neural Operator Development</h3>
               <p>
-                Developing physics-aware and numerically consistent machine learning models for nonlinear PDE systems, including operator-learning architectures, spectral methods, and stable long-horizon simulation frameworks.
+                Developing physics-aware and numerically consistent machine learning models for nonlinear PDE systems, including operator-learning architectures, spectral methods, U-shaped neural operators, Fourier-based models, and stable long-horizon simulation frameworks.
               </p>
             </div>
           </li>
@@ -581,7 +621,7 @@
             <div>
               <h3>Technical Expertise</h3>
               <p>
-                Python, PyTorch, JAX, TensorFlow, NumPy, SciPy, MATLAB, Abaqus, FEniCS, finite element methods, neural operators, PINNs, FNOs, DeepONets, numerical validation, and scientific visualization.
+                Python, PyTorch, JAX, TensorFlow, NumPy, SciPy, MATLAB, Abaqus, FEniCS, finite element methods, neural operators, PINNs, FNOs, F-FNOs, U-shaped neural operators, DeepONets, numerical validation, and scientific visualization.
               </p>
             </div>
           </li>
