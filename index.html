@@ -35,6 +35,10 @@
       font-size: 16px;
     }
 
+    body.lightbox-open {
+      overflow: hidden;
+    }
+
     a {
       color: var(--blue);
       text-decoration: underline;
@@ -320,6 +324,107 @@
       font-weight: 700;
     }
 
+    .zoomable-image {
+      cursor: zoom-in;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    }
+
+    .zoomable-image:hover {
+      transform: scale(1.025);
+      opacity: 0.96;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.16);
+    }
+
+    .image-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      background: rgba(12, 18, 28, 0.88);
+    }
+
+    .image-lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      width: min(96vw, 1400px);
+      max-height: 94vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+    }
+
+    .lightbox-image {
+      max-width: 96vw;
+      max-height: 84vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 18px 55px rgba(0, 0, 0, 0.45);
+      cursor: zoom-out;
+    }
+
+    .lightbox-caption {
+      color: white;
+      font-size: 15px;
+      text-align: center;
+      max-width: 900px;
+      line-height: 1.4;
+    }
+
+    .lightbox-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox-original {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 6px;
+      background: white;
+      color: #1f2937;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .lightbox-original:hover {
+      color: var(--blue);
+      background: #f3f6fb;
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 18px;
+      right: 22px;
+      width: 42px;
+      height: 42px;
+      border: none;
+      border-radius: 50%;
+      background: white;
+      color: #1f2937;
+      font-size: 30px;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    .lightbox-close:hover {
+      background: #f3f6fb;
+      color: var(--blue);
+    }
+
     footer {
       max-width: 1250px;
       margin: 0 auto;
@@ -360,6 +465,20 @@
         grid-template-columns: 1fr;
         gap: 4px;
       }
+
+      .image-lightbox {
+        padding: 16px;
+      }
+
+      .lightbox-image {
+        max-width: 94vw;
+        max-height: 78vh;
+      }
+
+      .lightbox-close {
+        top: 12px;
+        right: 12px;
+      }
     }
   </style>
 </head>
@@ -382,7 +501,7 @@
   <div id="home" class="container">
 
     <aside class="sidebar">
-      <img class="profile-photo" src="Mostafa_Bamdad.jpg" alt="Mostafa Bamdad profile photo" />
+      <img class="profile-photo zoomable-image" src="Mostafa_Bamdad.jpg" alt="Mostafa Bamdad profile photo" />
 
       <h1>Mostafa Bamdad</h1>
       <p class="name-small">Modeling and Simulation Researcher</p>
@@ -447,7 +566,7 @@
               <a href="https://github.com/MBamdad" target="_blank">Code</a>
             </p>
           </div>
-          <img src="HAMNO.png" alt="HAMNO research figure" />
+          <img class="zoomable-image" src="HAMNO.png" alt="HAMNO research figure" />
         </article>
 
         <article class="publication">
@@ -472,7 +591,7 @@
               <a href="https://github.com/MBamdad/PENCO" target="_blank">Code</a>
             </p>
           </div>
-          <img src="PENCO.png" alt="PENCO research figure" />
+          <img class="zoomable-image" src="PENCO.png" alt="PENCO research figure" />
         </article>
 
         <article class="publication">
@@ -496,7 +615,7 @@
               <a href="https://doi.org/10.1016/j.neucom.2024.129119" target="_blank">DOI</a>
             </p>
           </div>
-          <img src="SciML4PDE.png" alt="SciML4PDE publication figure" />
+          <img class="zoomable-image" src="SciML4PDE.png" alt="SciML4PDE publication figure" />
         </article>
 
         <article class="publication">
@@ -520,7 +639,7 @@
               <a href="https://doi.org/10.12989/anr.2023.15.5.423" target="_blank">DOI</a>
             </p>
           </div>
-          <img src="Multiphysics_MMEE.png" alt="Multiphysics magneto-electro-elastic publication figure" />
+          <img class="zoomable-image" src="Multiphysics_MMEE.png" alt="Multiphysics magneto-electro-elastic publication figure" />
         </article>
 
         <article class="publication">
@@ -547,7 +666,7 @@
               <a href="https://doi.org/10.1016/j.compstruct.2019.111119" target="_blank">DOI</a>
             </p>
           </div>
-          <img src="cylindrical.png" alt="Smart pressure vessel publication figure" />
+          <img class="zoomable-image" src="cylindrical.png" alt="Smart pressure vessel publication figure" />
         </article>
 
         <article class="publication">
@@ -574,7 +693,7 @@
               <a href="https://doi.org/10.1007/s00707-020-02697-5" target="_blank">DOI</a>
             </p>
           </div>
-          <img src="Free_vibration.png" alt="Free vibration and composite structure publication figure" />
+          <img class="zoomable-image" src="Free_vibration.png" alt="Free vibration and composite structure publication figure" />
         </article>
       </section>
 
@@ -663,7 +782,7 @@
               The workshop highlighted the role of SciML in connecting data-driven learning with physical modeling and addressed practical challenges in deploying reliable machine learning methods for complex real-world engineering systems.
             </p>
           </div>
-          <img src="Poster_TUM_ML4PDE.png" alt="Poster for TUM scientific machine learning workshop" />
+          <img class="zoomable-image" src="Poster_TUM_ML4PDE.png" alt="Poster for TUM scientific machine learning workshop" />
         </article>
 
         <article class="conference-card">
@@ -682,7 +801,7 @@
               Topics included machine learning for PDEs, universal approximation, data-driven classification, neural networks, and numerical simulation in mechanics, bio-mechanics, micro-fluidics, and related scientific domains.
             </p>
           </div>
-          <img src="MLPDES25.png" alt="FAU Machine Learning and PDEs workshop" />
+          <img class="zoomable-image" src="MLPDES25.png" alt="FAU Machine Learning and PDEs workshop" />
         </article>
       </section>
 
@@ -729,6 +848,85 @@
   <footer>
     © 2026 Mostafa Bamdad. Built with GitHub Pages.
   </footer>
+
+  <div class="image-lightbox" id="imageLightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close image preview">&times;</button>
+
+    <div class="lightbox-content">
+      <img class="lightbox-image" id="lightboxImage" src="" alt="" />
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+      <div class="lightbox-actions">
+        <a class="lightbox-original" id="lightboxOriginal" href="#" target="_blank" rel="noopener">
+          Open original image
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const lightbox = document.getElementById("imageLightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+    const lightboxOriginal = document.getElementById("lightboxOriginal");
+    const lightboxClose = document.getElementById("lightboxClose");
+
+    function openLightbox(image) {
+      const imageSource = image.getAttribute("src");
+      const imageAlt = image.getAttribute("alt") || "Selected image";
+
+      lightboxImage.src = imageSource;
+      lightboxImage.alt = imageAlt;
+      lightboxCaption.textContent = imageAlt;
+      lightboxOriginal.href = imageSource;
+
+      lightbox.classList.add("active");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("lightbox-open");
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("active");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("lightbox-open");
+
+      setTimeout(() => {
+        lightboxImage.src = "";
+        lightboxImage.alt = "";
+        lightboxCaption.textContent = "";
+        lightboxOriginal.href = "#";
+      }, 150);
+    }
+
+    document.querySelectorAll(".zoomable-image").forEach((image) => {
+      image.setAttribute("title", "Click to enlarge");
+      image.setAttribute("tabindex", "0");
+      image.setAttribute("role", "button");
+
+      image.addEventListener("click", () => openLightbox(image));
+
+      image.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openLightbox(image);
+        }
+      });
+    });
+
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightboxImage.addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && lightbox.classList.contains("active")) {
+        closeLightbox();
+      }
+    });
+  </script>
 
 </body>
 </html>
